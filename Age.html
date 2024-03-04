@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="agecla.css">
+</head>
+<body>
+    <div class="container">
+    <form action="">
+        <h2>
+           <i> Age Calculato</i>r</h2>
+        <div class="date">
+            <label for="" >Date :</label>
+            <input type="text" name="date" id="date" placeholder="Date" minlength="1" maxlength="2" required>
+        </div>
+
+        <div class="mon">
+            <label for="">Month :</label>
+            <input type="text" name="month" id="month" placeholder="Month" minlength="1" maxlength="2" required>
+        </div>
+
+        <div class="year">
+            <label for="">year :</label>
+            <input type="text" name="year" id="year" placeholder="Year" minlength="4" maxlength="4" required>
+        </div>
+        
+        <div class="butt">
+            <button class="but" type="button" name="submit" value="submit" onclick="Age()"><i>Submit</i></button>
+        </div>
+
+        <div class="val">
+            <h3 class="age" id="age"></h3>
+        </div>
+    </div>
+    </form>
+
+    <script>
+        function Age(){
+            var d1=document.getElementById("date").value;
+            var m1=document.getElementById("month").value;
+            var y1=document.getElementById("year").value;
+
+            var date=new Date();
+            // console.log( "Date " +date);
+            var d2=date.getDate();
+            // console.log( "D " +d2);
+
+            var m2=1+date.getMonth();
+            // console.log( "month " +m2);
+
+            var y2=date.getFullYear();
+            // console.log( "year " +y2);
+
+            var month=[31,28,31,30,31,30,31,31,30,31,30,31];
+
+            if(d1>d2){
+                d2=d2+month[m2-1];
+                m2=m2-1;
+            }
+            if(m1>m2){
+                m2=m2+12;
+                y2=y2-1;
+            }
+            var d=d2-d1;
+            console.log(d);
+            var m=m2-m1;
+            console.log(m);
+
+            var y=y2-y1;
+
+          
+          if(d1>0 && m1>0){
+           if(d1<32 && m1<13){
+            document.getElementById('age').innerHTML="Your Age is"+ y +" years "+m+" months "+d+' days'
+            console.log("one");
+           }
+          else{
+            document.getElementById('age').innerHTML="Your input is Not Valid"
+
+          }
+          }
+          else{
+            document.getElementById('age').innerHTML="Your input is Not Valid"
+
+          }
+
+           }
+           
+       
+
+            
+        
+    </script>
+</body>
+</html>
